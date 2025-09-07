@@ -16,13 +16,11 @@ public class Cliente extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Área de pantalla estilo consola
         pantalla = new JTextArea();
         pantalla.setEditable(false);
         pantalla.setFont(new Font("Monospaced", Font.PLAIN, 14));
         JScrollPane scroll = new JScrollPane(pantalla);
 
-        // Panel inferior con entradas
         JPanel panelEntrada = new JPanel(new GridLayout(4, 2, 5, 5));
         panelEntrada.add(new JLabel("Opción (1-6):"));
         txtOpcion = new JTextField();
@@ -70,7 +68,6 @@ public class Cliente extends JFrame {
                 return;
             }
 
-            // Construir mensaje en el protocolo
             String mensaje = opcion + ";" + numero;
             if (!ancho.isEmpty()) {
                 mensaje += ";" + ancho;
