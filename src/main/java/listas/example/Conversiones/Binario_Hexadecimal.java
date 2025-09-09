@@ -31,6 +31,9 @@ public class Binario_Hexadecimal {
     public String convertir_Binario_Hexadecimal (String bin) {
         ArrayList<Character> caracteres = new ArrayList<>();
         for (int i= 0; i<bin.length(); i++) {
+            if(bin.charAt(i) != '1' || bin.charAt(i) != '0') {
+                return "El numero ingresado no es binario";
+            }
             caracteres.add(bin.charAt(i));
         }
 

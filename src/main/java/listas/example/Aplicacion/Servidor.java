@@ -23,7 +23,7 @@ public class Servidor {
                 String respuesta = procesarMensaje(message);
 
                 toNetwork.println(respuesta);
-                System.out.println("[Servidor] Enviando respuesta: " + respuesta + "\\n");
+                System.out.println("[Servidor] Enviando respuesta: " + respuesta + "\n");
 
                 socket.close();
             }
@@ -42,13 +42,13 @@ public class Servidor {
 
             switch (opcion) {
                 case 1:
-                    //return DecimalABinario.convertir(Integer.parseInt(numero), ancho);
+                    return Decimal_Binario.convertir_Decimal_Binario(Integer.parseInt(numero), ancho);
                 case 2:
-                    //return BinarioADecimal.convertir(numero);
+                    return Binario_Decimal.convertir_Binario_Decimal(numero);
                 case 3:
-                    //return DecimalAHexadecimal.convertir(Integer.parseInt(numero), ancho);
+                    return Decimal_Hexadecimal.convertir_decimal_hexadecimal(Integer.parseInt(numero));
                 case 4:
-                    //return HexadecimalADecimal.convertir(numero);
+                    return Hexadecimal_Decimal.convertir_hexadecimal_decimal(numero);
                 case 5:
                     Binario_Hexadecimal BH = new Binario_Hexadecimal();
                     return BH.convertir_Binario_Hexadecimal(numero);
