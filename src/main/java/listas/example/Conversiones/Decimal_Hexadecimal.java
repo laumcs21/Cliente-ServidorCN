@@ -1,11 +1,11 @@
 package listas.example.Conversiones;
 
-
-
 public class Decimal_Hexadecimal {
-    public static String convertir_decimal_hexadecimal(int decimal) {
+
+    public static String convertir_decimal_hexadecimal(int decimal, int anchoHex) {
         if (decimal == 0) {
-            return "0";
+            // Si el ancho es mayor a 1, rellenar con ceros
+            return String.format("%" + anchoHex + "s", "0").replace(' ', '0');
         }
 
         StringBuilder hex = new StringBuilder();
@@ -17,7 +17,13 @@ public class Decimal_Hexadecimal {
             decimal = decimal / 16;
         }
 
+        // Ajustar al ancho requerido rellenando con ceros a la izquierda
+        while (hex.length() < anchoHex) {
+            hex.insert(0, '0');
+        }
+
         return hex.toString();
     }
+
 
 }

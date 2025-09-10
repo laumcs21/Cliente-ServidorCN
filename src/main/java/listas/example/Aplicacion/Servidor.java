@@ -46,12 +46,12 @@ public class Servidor {
                 case 2:
                     return Binario_Decimal.convertir_Binario_Decimal(numero);
                 case 3:
-                    return Decimal_Hexadecimal.convertir_decimal_hexadecimal(Integer.parseInt(numero));
+                    return Decimal_Hexadecimal.convertir_decimal_hexadecimal(Integer.parseInt(numero), ancho);
                 case 4:
                     return Hexadecimal_Decimal.convertir_hexadecimal_decimal(numero);
                 case 5:
                     Binario_Hexadecimal BH = new Binario_Hexadecimal();
-                    return BH.convertir_Binario_Hexadecimal(numero);
+                    return BH.convertir_Binario_Hexadecimal(numero, ancho);
                 case 6:
                     Hexadecimal_Binario HB = new Hexadecimal_Binario();
                     return HB.convertir_Hexadecimal_Binario(numero);

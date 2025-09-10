@@ -27,29 +27,36 @@ public class Binario_Hexadecimal {
         BinToHexMap.put("1111", 'F');
     }
 
+    public String convertir_Binario_Hexadecimal(String bin, int anchoHex) {
         StringBuilder numeroHexadecimal = new StringBuilder();
-    public String convertir_Binario_Hexadecimal (String bin) {
         ArrayList<Character> caracteres = new ArrayList<>();
-        for (int i= 0; i<bin.length(); i++) {
-            if(bin.charAt(i) != '1' || bin.charAt(i) != '0') {
-                return "El numero ingresado no es binario";
-            }
+
+        // Guardar todos los dígitos binarios
+        for (int i = 0; i < bin.length(); i++) {
             caracteres.add(bin.charAt(i));
         }
 
-        while (caracteres.size() % 4 != 0){
+        // Rellenar con ceros a la izquierda hasta múltiplo de 4
+        while (caracteres.size() % 4 != 0) {
             caracteres.add(0, '0');
         }
 
-        for (int i=0; i<caracteres.size(); i=i+4){
-            String grupo = "";
-            for (int j=0; j<4; j++){
-                grupo += caracteres.get(i+j);
+        // Convertir cada grupo de 4 bits en hexadecimal
+        for (int i = 0; i < caracteres.size(); i += 4) {
+            StringBuilder grupo = new StringBuilder();
+            for (int j = 0; j < 4; j++) {
+                grupo.append(caracteres.get(i + j));
             }
-            numeroHexadecimal.append(BinToHexMap.get(grupo));
-            grupo = "";
+            numeroHexadecimal.append(BinToHexMap.get(grupo.toString()));
+        }
+
+        // Ajustar al ancho requerido (rellenar con ceros a la izquierda si hace falta)
+        while (numeroHexadecimal.length() < anchoHex) {
+            numeroHexadecimal.insert(0, '0');
         }
 
         return numeroHexadecimal.toString();
     }
+
+
 }
